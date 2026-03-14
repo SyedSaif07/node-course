@@ -18,9 +18,6 @@ const server = http.createServer((req, res) => {
     return res.end();
   }
 
-  // req.on('data', chunk => {
-  //   console.log(chunk)
-  // }) fetching chunk from data
 
 //   process.exit(); // to kill the server
 }); // createServer requires function as a param
