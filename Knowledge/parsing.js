@@ -1,7 +1,6 @@
-const http = require("http");
-const fs = require('fs')
+const fs = require("fs");
 
-const server = http.createServer((req, res) => {
+const requestParser = (req, res) => {
   const body = [];
   req.on("data", (chunk) => {
     console.log(chunk);
@@ -16,8 +15,10 @@ const server = http.createServer((req, res) => {
     // for (const [key, val] of params.entries()) {
     //   bodyObject[key] = val;
     // }
-    const bodyObject = Object.fromEntries(params)
+    const bodyObject = Object.fromEntries(params);
     console.log(bodyObject);
-    fs.writeFileSync('user.txt', JSON.stringify(bodyObject));
+    fs.writeFileSync("user.txt", JSON.stringify(bodyObject));
   });
-});
+};
+
+module.exports = requestParser;
