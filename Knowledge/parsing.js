@@ -17,7 +17,9 @@ const requestParser = (req, res) => {
     // }
     const bodyObject = Object.fromEntries(params);
     console.log(bodyObject);
-    fs.writeFileSync("user.txt", JSON.stringify(bodyObject));
+    fs.writeFileSync("user.txt", JSON.stringify(bodyObject)); // blocking the main thread
+    fs.writeFile("user.txt", JSON.stringify(bodyObject), error => {
+      console.log('Data written successfully')}); //async, frees the main thread
   });
 };
 
