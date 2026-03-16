@@ -1,0 +1,25 @@
+# Dependencies
+/node_modules
+/jspm_packages/
+
+# Detritus
+.DS_Store
+*.stackdump
+npm-debug.log*
+.npmrc
+yarn-error.log
+
+# Environment variables
+.env
+.env.development.local
+.env.test.local
+.env.production.local
+.env.local
+
+# TypeScript
+*.tsbuildinfo
+
+# Editors and IDEs
+.idea/
+.vscode/
+*.swp
