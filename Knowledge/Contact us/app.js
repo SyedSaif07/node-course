@@ -1,5 +1,6 @@
 // External Modules
 const express = require("express");
+const bodyParser = require("body-parser");
 
 const app = express();
 
@@ -33,10 +34,16 @@ app.get("/contact-us", (req, res, next) => {
     </form>
     `);
 });
+app.use(bodyParser.urlencoded()); // parse the request body before the request to get the data in req.body
 
 app.post("/contact-us", (req, res, next) => {
-    console.log("Handling for /contact-us for POST", req.url, req.method);
-    res.send(`<h1>We will contact you shortly</h1>`);
+  console.log(
+    "Handling for /contact-us for POST",
+    req.url,
+    req.method,
+    req.body,
+  );
+  res.send(`<h1>We will contact you shortly</h1>`);
 });
 
 const PORT = 3000;
